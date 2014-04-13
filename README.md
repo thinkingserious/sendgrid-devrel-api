@@ -6,4 +6,4 @@ The documentation is located on [Apiary](http://docs.sendgrid.apiary.io). The so
 
 # Application
 
-The API is implemented in Python/Flask. The source code can be found in the app directory.
+The API is implemented in Python/Flask. The source code can be found in the [app directory](https://github.com/thinkingserious/sendgrid-devrel-api/tree/master/app).
