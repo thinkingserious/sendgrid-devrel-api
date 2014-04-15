@@ -1,4 +1,4 @@
-This API allows you to interact with data related to SendGrid's Dev Rel (Developer Relations) KPIs (Key Performance Indicators).
+This API allows you to interact with data related to SendGrid's Dev Rel (Developer Relations) KPIs (Key Performance Indicators). The goal is to make this code general enough for usage by any Developer Relations team.
 
 # Setup
 
