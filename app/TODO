@@ -17,6 +17,7 @@ I will eventually move these to issues, but for now ...
 * for StackOverflow and Quora id is the team member id in SalesForce
 * sync fields and sample data with apiary docs
 * add favicon.ico
+* add Sphinx compatible comments
 
 * implement Salesforce connector
 * implement GA connector
