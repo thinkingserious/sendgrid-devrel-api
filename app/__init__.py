@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask.ext.restful import Api
 
@@ -25,8 +27,11 @@ from api_1_0.endpoints.opensource.perl import Perl
 from api_1_0.endpoints.opensource.php import PHP
 from api_1_0.endpoints.opensource.python import Python
 
+from api_1_0.connectors.salesforce.salesforce import SF
+
 app = Flask(__name__)
 api = Api(app)
+app.config.from_envvar('SENDGRIDDEVRELAPI_SETTINGS')
 
 # Register the endpoints
 api.add_resource(Team, '/team/<int:id>', '/team')
@@ -52,3 +57,5 @@ api.add_resource(ObjC, '/opensource/objc')
 api.add_resource(Perl, '/opensource/perl')
 api.add_resource(PHP, '/opensource/php')
 api.add_resource(Python, '/opensource/python')
+
+api.add_resource(SF, '/salesforce')

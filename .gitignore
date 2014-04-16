@@ -60,3 +60,6 @@ venv
 # Maven
 log/
 target/
+
+# Credentials
+config.ini
