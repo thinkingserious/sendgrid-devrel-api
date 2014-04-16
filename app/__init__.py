@@ -1,5 +1,3 @@
-import os
-
 from flask import Flask
 from flask.ext.restful import Api
 
@@ -41,7 +39,7 @@ api.add_resource(Feedback, '/feedback/<int:id>', '/feedback')
 api.add_resource(Project, '/project/<int:id>', '/project')
 api.add_resource(Blog, '/blog/<int:id>', '/blog')
 api.add_resource(Accelerator, '/accelerator/<int:id>', '/accelerator')
-
+# Social related endpoints
 api.add_resource(Twitter, '/social/twitter')
 api.add_resource(StackOverflow, '/social/stackoverflow/<int:id>', '/social/stackoverflow')
 api.add_resource(Quora, '/social/quora/<int:id>', '/social/quora')
@@ -49,7 +47,7 @@ api.add_resource(Facebook, '/social/facebook')
 api.add_resource(Gplus, '/social/gplus')
 api.add_resource(Klout, '/social/klout')
 api.add_resource(Docs, '/opensource/docs')
-
+# Open Source related endpoints
 api.add_resource(Csharp, '/opensource/csharp')
 api.add_resource(Java, '/opensource/java')
 api.add_resource(NodeJS, '/opensource/nodejs')
@@ -57,5 +55,5 @@ api.add_resource(ObjC, '/opensource/objc')
 api.add_resource(Perl, '/opensource/perl')
 api.add_resource(PHP, '/opensource/php')
 api.add_resource(Python, '/opensource/python')
-
+# TODO: Remove this endpoint when done with testing this connector
 api.add_resource(SF, '/salesforce')
