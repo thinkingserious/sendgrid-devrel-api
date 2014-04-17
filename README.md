@@ -5,8 +5,7 @@ This API allows you to interact with data related to SendGrid's Dev Rel (Develop
 * Clone this repo
 * `virtualenv venv`
 * `source venv/bin/activate`
-* `pip install flask`
-* `pip install flask-restful`
+* `pip install -r requirements.txt`
 * make run.py executable, then `./run.py`
 * Look in the [tests file](https://github.com/thinkingserious/sendgrid-devrel-api/blob/master/app/tests/manual_tests.txt) for some example test commands
 

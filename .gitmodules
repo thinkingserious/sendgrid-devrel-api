@@ -1,3 +1,0 @@
-[submodule "app/libs/simple-salesforce"]
-	path = app/libs/simple-salesforce
-	url = git@github.com:thinkingserious/simple-salesforce.git

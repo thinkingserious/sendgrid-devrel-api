@@ -29,7 +29,6 @@ from api_1_0.connectors.salesforce.salesforce import SF
 
 app = Flask(__name__)
 api = Api(app)
-app.config.from_envvar('SENDGRIDDEVRELAPI_SETTINGS')
 
 # Register the endpoints
 api.add_resource(Team, '/team/<int:id>', '/team')
