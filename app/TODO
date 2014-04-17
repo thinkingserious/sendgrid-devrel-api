@@ -1,13 +1,13 @@
 I will eventually move these to issues, but for now ...
 
+* implement unit, functional and smoke tests using nose, store test data in test.py and use sqllite and maybe SQLAlchemy
 * implement Flask Blueprints
 * document error returns
 * curl example code does not work on Apiary, see app/tests/manual_tests.txt
 * for a put to Team, there should not be the id parameter in the docs
 * make sure the created_at time stamp is documented properly
-* implement unit, functional and smoke tests
 * join #pocoo IRC channel
-* relationship owner should be a salesforce ID
+* relationship owner should be a salesforce Username
 * relationship location should map to a venue ID
 * company_name in relationships missing in docs
 * handle the case when you try to put a record on an empty array
@@ -18,10 +18,15 @@ I will eventually move these to issues, but for now ...
 * sync fields and sample data with apiary docs
 * add favicon.ico
 * add Sphinx compatible comments
-* remove libs/simple-salesforce submodule and install via pip
+* implement flask-login Oauth and login plugin, track access outside of Salesforce
+* abstract the routes into routes.py
+* put the endpoints in the __init__.py for easy switching to different versions of the API
+* use environment variables instead of ConfigObj
 
-* implement Salesforce connector
+* implement Salesforce connector [in progress]
 * implement GA connector
 * implement social connectors
 * implement open source connectors
 * implement custom connectors
+
+* use gunicorn and gevent when its time to deploy
