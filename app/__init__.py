@@ -8,12 +8,10 @@ from api_1_0.endpoints.feedback import Feedback
 from api_1_0.endpoints.project import Project
 from api_1_0.endpoints.blog import Blog
 from api_1_0.endpoints.accelerator import Accelerator
-
 from api_1_0.endpoints.social.twitter import Twitter
 from api_1_0.endpoints.social.stackoverflow import StackOverflow
 from api_1_0.endpoints.social.quora import Quora
 from api_1_0.endpoints.social.facebook import Facebook
-
 from api_1_0.endpoints.social.gplus import Gplus
 from api_1_0.endpoints.social.klout import Klout
 from api_1_0.endpoints.opensource.docs import Docs
@@ -25,7 +23,8 @@ from api_1_0.endpoints.opensource.perl import Perl
 from api_1_0.endpoints.opensource.php import PHP
 from api_1_0.endpoints.opensource.python import Python
 
-from api_1_0.connectors.salesforce.salesforce import SF
+from connectors.salesforce.salesforce import SF
+
 
 app = Flask(__name__)
 api = Api(app)
