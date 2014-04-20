@@ -4,11 +4,11 @@ Until formal tests are created, the following commands can be used manually
 # Test Team Endpoint
 
 ## GET
-curl -i http://127.0.0.1:5000/team
-curl -i http://127.0.0.1:5000/team/0
+curl -i http://127.0.0.1:5000/api/v1_0/team
+curl -i http://127.0.0.1:5000/api/v1_0/team/0
 
 ## PATCH
-curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/team/0 -d '{"email":"elmer.thomas@sendgrid.com"}'
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1_0/team/0 -d '{"email":"elmer.thomas@sendgrid.com"}'
 
 ## PUT
 curl -X PUT \
@@ -21,19 +21,19 @@ curl -X PUT \
     "phone": "999.999.9999",
     "home_city": "Parts Unknown"
 }' \
-http://127.0.0.1:5000/team
+http://127.0.0.1:5000/api/v1_0/team
 
 ## DELETE
-curl --include --request DELETE http://127.0.0.1:5000/team/0
+curl --include --request DELETE http://127.0.0.1:5000/api/v1_0/team/0
 
 # Test Relationship Endpoint
 
 ## GET
-curl -i http://127.0.0.1:5000/relationship
-curl -i http://127.0.0.1:5000/relationship/0
+curl -i http://127.0.0.1:5000/api/v1_0/relationship
+curl -i http://127.0.0.1:5000/api/v1_0/relationship/0
 
 ## PATCH
-curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/relationship/0 -d '{"company_name":"E-Dizzle Enterprises"}'
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1_0/relationship/0 -d '{"company_name":"E-Dizzle Enterprises"}'
 
 ## PUT
 curl -X PUT \
@@ -44,19 +44,19 @@ curl -X PUT \
     "email": "hulkster@hulk.hogan.com",
     "status": "dev rel nurture"
 }' \
-http://127.0.0.1:5000/relationship
+http://127.0.0.1:5000/api/v1_0/relationship
 
 ## DELETE
-curl --include --request DELETE http://127.0.0.1:5000/relationship/0
+curl --include --request DELETE http://127.0.0.1:5000/api/v1_0/relationship/0
 
 # Test Event Endpoint
 
 ## GET
-curl -i http://127.0.0.1:5000/event
-curl -i http://127.0.0.1:5000/event/0
+curl -i http://127.0.0.1:5000/api/v1_0/event
+curl -i http://127.0.0.1:5000/api/v1_0/event/0
 
 ## PATCH
-curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/event/0 -d '{"twitter":”SendGrid"}'
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1_0/event/0 -d '{"twitter":”SendGrid"}'
 
 ## PUT
 curl -X PUT \
@@ -80,19 +80,19 @@ curl -X PUT \
         "registration_link": "www.burgerkinghack.com",
         "comments": "This hackathon was terrible, let us stick to McHack."
 }' \
-http://127.0.0.1:5000/event
+http://127.0.0.1:5000/api/v1_0/event
 
 ## DELETE
-curl --include --request DELETE http://127.0.0.1:5000/event/0
+curl --include --request DELETE http://127.0.0.1:5000/api/v1_0/event/0
 
 # Test Feedback Endpoint
 
 ## GET
-curl -i http://127.0.0.1:5000/feedback
-curl -i http://127.0.0.1:5000/feedback/0
+curl -i http://127.0.0.1:5000/api/v1_0/feedback
+curl -i http://127.0.0.1:5000/api/v1_0/feedback/0
 
 ## PATCH
-curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/feedback/0 -d '{"owner":”Dominic"}'
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1_0/feedback/0 -d '{"owner":”Dominic"}'
 
 ## PUT
 curl -X PUT \
@@ -103,19 +103,19 @@ curl -X PUT \
     "title": "Sign Up",
     "description": "They want to know what is in our wallets."
 }' \
-http://127.0.0.1:5000/feedback
+http://127.0.0.1:5000/api/v1_0/feedback
 
 ## DELETE
-curl --include --request DELETE http://127.0.0.1:5000/feedback/0
+curl --include --request DELETE http://127.0.0.1:5000/api/v1_0/feedback/0
 
 # Test Project Endpoint
 
 ## GET
-curl -i http://127.0.0.1:5000/project
-curl -i http://127.0.0.1:5000/project/0
+curl -i http://127.0.0.1:5000/api/v1_0/project
+curl -i http://127.0.0.1:5000/api/v1_0/project/0
 
 ## PATCH
-curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/project/0 -d '{"status":"On Fire"}'
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1_0/project/0 -d '{"status":"On Fire"}'
 
 ## PUT
 curl -X PUT \
@@ -125,19 +125,19 @@ curl -X PUT \
     "name": "Wrestlemania",
     "description": "A wrestling revival."
 }' \
-http://127.0.0.1:5000/project
+http://127.0.0.1:5000/api/v1_0/project
 
 ## DELETE
-curl --include --request DELETE http://127.0.0.1:5000/project/0
+curl --include --request DELETE http://127.0.0.1:5000/api/v1_0/project/0
 
 # Test Blog Endpoint
 
 ## GET
-curl -i http://127.0.0.1:5000/blog
-curl -i http://127.0.0.1:5000/blog/0
+curl -i http://127.0.0.1:5000/api/v1_0/blog
+curl -i http://127.0.0.1:5000/api/v1_0/blog/0
 
 ## PATCH
-curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/blog/0 -d '{"content_type":"Tutorial"}'
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1_0/blog/0 -d '{"content_type":"Tutorial"}'
 
 ## PUT
 curl -X PUT \
@@ -147,19 +147,19 @@ curl -X PUT \
     "url": "http://www.sendgrid.com/blog/why-wrestlemania-is-totally-technical",
     "description": "Why Wrestlemania is Totally Technical"
 }' \
-http://127.0.0.1:5000/blog
+http://127.0.0.1:5000/api/v1_0/blog
 
 ## DELETE
-curl --include --request DELETE http://127.0.0.1:5000/blog/0
+curl --include --request DELETE http://127.0.0.1:5000/api/v1_0/blog/0
 
 # Test Blog Endpoint
 
 ## GET
-curl -i http://127.0.0.1:5000/accelerator
-curl -i http://127.0.0.1:5000/accelerator/0
+curl -i http://127.0.0.1:5000/api/v1_0/accelerator
+curl -i http://127.0.0.1:5000/api/v1_0/accelerator/0
 
 ## PATCH
-curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/accelerator/0 -d '{"notes":"Forget Oscar, hang out with Elmo instead."}'
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1_0/accelerator/0 -d '{"notes":"Forget Oscar, hang out with Elmo instead."}'
 
 ## PUT
 curl -X PUT \
@@ -170,80 +170,80 @@ curl -X PUT \
     "name": "Accelerators are Us",
     "venue": 4
 }' \
-http://127.0.0.1:5000/accelerator
+http://127.0.0.1:5000/api/v1_0/accelerator
 
 ## DELETE
-curl --include --request DELETE http://127.0.0.1:5000/accelerator/0
+curl --include --request DELETE http://127.0.0.1:5000/api/v1_0/accelerator/0
 
 # Test StackOverflow
 
 ## GET
-curl -i http://127.0.0.1:5000/social/stackoverflow
-curl -i http://127.0.0.1:5000/social/stackoverflow/0
+curl -i http://127.0.0.1:5000/api/v1_0/social/stackoverflow
+curl -i http://127.0.0.1:5000/api/v1_0/social/stackoverflow/0
 
 
 # Test Quora
 
 ## GET
-curl -i http://127.0.0.1:5000/social/quora
-curl -i http://127.0.0.1:5000/social/quora/0
+curl -i http://127.0.0.1:5000/api/v1_0/social/quora
+curl -i http://127.0.0.1:5000/api/v1_0/social/quora/0
 
 # Test Twitter
 
 ## GET
-curl -i http://127.0.0.1:5000/social/twitter
+curl -i http://127.0.0.1:5000/api/v1_0/social/twitter
 
 # Test Facebook
 
 ## GET
-curl -i http://127.0.0.1:5000/social/facebook
+curl -i http://127.0.0.1:5000/api/v1_0/social/facebook
 
 # Test Gplus
 
 ## GET
-curl -i http://127.0.0.1:5000/social/gplus
+curl -i http://127.0.0.1:5000/api/v1_0/social/gplus
 
 # Test Klout
 
 ## GET
-curl -i http://127.0.0.1:5000/social/klout
+curl -i http://127.0.0.1:5000/api/v1_0/social/klout
 
 # Test Docs
 
 ## GET
-curl -i http://127.0.0.1:5000/opensource/docs
+curl -i http://127.0.0.1:5000/api/v1_0/opensource/docs
 
 # Test Csharp
 
 ## GET
-curl -i http://127.0.0.1:5000/opensource/csharp
+curl -i http://127.0.0.1:5000/api/v1_0/opensource/csharp
 
 # Test Java
 
 ## GET
-curl -i http://127.0.0.1:5000/opensource/java
+curl -i http://127.0.0.1:5000/api/v1_0/opensource/java
 
 # Test NodeJS
 
 ## GET
-curl -i http://127.0.0.1:5000/opensource/nodejs
+curl -i http://127.0.0.1:5000/api/v1_0/opensource/nodejs
 
 # Test ObjC
 
 ## GET
-curl -i http://127.0.0.1:5000/opensource/objc
+curl -i http://127.0.0.1:5000/api/v1_0/opensource/objc
 
 # Test Perl
 
 ## GET
-curl -i http://127.0.0.1:5000/opensource/perl
+curl -i http://127.0.0.1:5000/api/v1_0/opensource/perl
 
 # Test PHP
 
 ## GET
-curl -i http://127.0.0.1:5000/opensource/php
+curl -i http://127.0.0.1:5000/api/v1_0/opensource/php
 
 # Test Python
 
 GET
-curl -i http://127.0.0.1:5000/opensource/python
+curl -i http://127.0.0.1:5000/api/v1_0/opensource/python
