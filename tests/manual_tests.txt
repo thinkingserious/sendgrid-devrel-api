@@ -1,0 +1,249 @@
+Until formal tests are created, the following commands can be used manually
+
+
+# Test Team Endpoint
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/team
+curl -i http://127.0.0.1:5000/api/v1.0/team/0
+
+## PATCH
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1.0/team/0 -d '{"email":"elmer.thomas@sendgrid.com"}'
+
+## PUT
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -d '{
+    "type": "Ambassador",
+    "first_name": "Ultimate",
+    "last_name": "Warrior",
+    "email": "ultimate@warrior.com",
+    "phone": "999.999.9999",
+    "home_city": "Parts Unknown"
+}' \
+http://127.0.0.1:5000/api/v1.0/team
+
+## DELETE
+curl --include --request DELETE http://127.0.0.1:5000/api/v1.0/team/0
+
+# Test Relationship Endpoint
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/relationship
+curl -i http://127.0.0.1:5000/api/v1.0/relationship/0
+
+## PATCH
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1.0/relationship/0 -d '{"company_name":"E-Dizzle Enterprises"}'
+
+## PUT
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -d '{
+    "owner": 0,
+    "first_name": "Hulk",
+    "email": "hulkster@hulk.hogan.com",
+    "status": "dev rel nurture"
+}' \
+http://127.0.0.1:5000/api/v1.0/relationship
+
+## DELETE
+curl --include --request DELETE http://127.0.0.1:5000/api/v1.0/relationship/0
+
+# Test Event Endpoint
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/event
+curl -i http://127.0.0.1:5000/api/v1.0/event/0
+
+## PATCH
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1.0/event/0 -d '{"twitter":”SendGrid"}'
+
+## PUT
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -d '{
+    "owner": 0,
+    "event_name": "BurgerKingHack",
+        "event_short_description": "Find out who can make the best Burger King Burger.",
+        "event_long_description": "Find out who can make the best Burger King. Given some burgers, cheese and condiments, let us see what you can do in 24 hours.",
+        "who_is_attending": "0, 2, 5",
+        "start_date": "2014-04-06",
+        "end_date": "2014-04-10",
+        "venue": 0,
+        "event_type": "other, cookathon",
+        "sendgrid_api_uses": 0,
+        "number_of_attendees": 50,
+        "participation": "demo sendgrid api, other, cook",
+        "audience_type": "evenly split between technical and non-technical",
+        "education_focused": "False",
+        "should_we_attend": "True",
+        "registration_link": "www.burgerkinghack.com",
+        "comments": "This hackathon was terrible, let us stick to McHack."
+}' \
+http://127.0.0.1:5000/api/v1.0/event
+
+## DELETE
+curl --include --request DELETE http://127.0.0.1:5000/api/v1.0/event/0
+
+# Test Feedback Endpoint
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/feedback
+curl -i http://127.0.0.1:5000/api/v1.0/feedback/0
+
+## PATCH
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1.0/feedback/0 -d '{"owner":”Dominic"}'
+
+## PUT
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -d '{
+    "creator": 0,
+    "source": "CapitalOne",
+    "title": "Sign Up",
+    "description": "They want to know what is in our wallets."
+}' \
+http://127.0.0.1:5000/api/v1.0/feedback
+
+## DELETE
+curl --include --request DELETE http://127.0.0.1:5000/api/v1.0/feedback/0
+
+# Test Project Endpoint
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/project
+curl -i http://127.0.0.1:5000/api/v1.0/project/0
+
+## PATCH
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1.0/project/0 -d '{"status":"On Fire"}'
+
+## PUT
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -d '{
+    "owner": 1,
+    "name": "Wrestlemania",
+    "description": "A wrestling revival."
+}' \
+http://127.0.0.1:5000/api/v1.0/project
+
+## DELETE
+curl --include --request DELETE http://127.0.0.1:5000/api/v1.0/project/0
+
+# Test Blog Endpoint
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/blog
+curl -i http://127.0.0.1:5000/api/v1.0/blog/0
+
+## PATCH
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1.0/blog/0 -d '{"content_type":"Tutorial"}'
+
+## PUT
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -d '{
+    "author": 1,
+    "url": "http://www.sendgrid.com/blog/why-wrestlemania-is-totally-technical",
+    "description": "Why Wrestlemania is Totally Technical"
+}' \
+http://127.0.0.1:5000/api/v1.0/blog
+
+## DELETE
+curl --include --request DELETE http://127.0.0.1:5000/api/v1.0/blog/0
+
+# Test Blog Endpoint
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/accelerator
+curl -i http://127.0.0.1:5000/api/v1.0/accelerator/0
+
+## PATCH
+curl -H "Content-type: application/json" -X PATCH http://127.0.0.1:5000/api/v1.0/accelerator/0 -d '{"notes":"Forget Oscar, hang out with Elmo instead."}'
+
+## PUT
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -d '{
+    "owner": 0,
+    "accelerator_url": "http://www.acceleratorsareus.com",
+    "name": "Accelerators are Us",
+    "venue": 4
+}' \
+http://127.0.0.1:5000/api/v1.0/accelerator
+
+## DELETE
+curl --include --request DELETE http://127.0.0.1:5000/api/v1.0/accelerator/0
+
+# Test StackOverflow
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/social/stackoverflow
+curl -i http://127.0.0.1:5000/api/v1.0/social/stackoverflow/0
+
+
+# Test Quora
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/social/quora
+curl -i http://127.0.0.1:5000/api/v1.0/social/quora/0
+
+# Test Twitter
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/social/twitter
+
+# Test Facebook
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/social/facebook
+
+# Test Gplus
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/social/gplus
+
+# Test Klout
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/social/klout
+
+# Test Docs
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/opensource/docs
+
+# Test Csharp
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/opensource/csharp
+
+# Test Java
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/opensource/java
+
+# Test NodeJS
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/opensource/nodejs
+
+# Test ObjC
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/opensource/objc
+
+# Test Perl
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/opensource/perl
+
+# Test PHP
+
+## GET
+curl -i http://127.0.0.1:5000/api/v1.0/opensource/php
+
+# Test Python
+
+GET
+curl -i http://127.0.0.1:5000/api/v1.0/opensource/python

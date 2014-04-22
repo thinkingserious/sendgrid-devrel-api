@@ -24,7 +24,7 @@ from .endpoints.opensource.python import Python
 from ..connectors.salesforce.salesforce import SF
 
 api_blueprint = Blueprint('api', __name__)
-api = Api(prefix='/api/v1_0')
+api = Api(prefix='/api/v1.0')
 
 # Register the endpoints
 api.add_resource(Team, '/team/<int:id>', '/team')

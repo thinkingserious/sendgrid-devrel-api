@@ -21,7 +21,7 @@ I will eventually move these to issues, but for now ...
 * implement flask-login Oauth and login plugin, track access outside of Salesforce
 * abstract the routes into routes.py
 * put the endpoints in the __init__.py for easy switching to different versions of the API
-* use environment variables instead of ConfigObj
+* use environment variables (.env) instead of ConfigObj
 
 * implement Salesforce connector [in progress]
 * implement GA connector
