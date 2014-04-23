@@ -86,7 +86,7 @@ class Feedback(Resource):
         for k, v in args.iteritems():
             if v != None:
                 feedback_member[k] = v
-        return marshal(feedback_member, feedback_fields)
+        return '', 204
 
     def put(self):
         args = self.reqparse.parse_args()
@@ -105,4 +105,4 @@ class Feedback(Resource):
             abort(404)
         feedback_member = feedback_member[0]
         feedback.remove(feedback_member)
-        return 204
+        return '', 204

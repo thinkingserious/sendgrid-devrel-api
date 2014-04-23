@@ -114,7 +114,7 @@ class Event(Resource):
         for k, v in args.iteritems():
             if v != None:
                 event_member[k] = v
-        return marshal(event_member, event_fields)
+        return '', 204
 
     def put(self):
         args = self.reqparse.parse_args()
@@ -133,4 +133,4 @@ class Event(Resource):
             abort(404)
         event_member = event_member[0]
         event.remove(event_member)
-        return 204
+        return '', 204

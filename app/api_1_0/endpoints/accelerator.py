@@ -89,7 +89,7 @@ class Accelerator(Resource):
         for k, v in args.iteritems():
             if v != None:
                 accelerator_member[k] = v
-        return marshal(accelerator_member, accelerator_fields)
+        return '', 204
 
     def put(self):
         args = self.reqparse.parse_args()
@@ -108,4 +108,4 @@ class Accelerator(Resource):
             abort(404)
         accelerator_member = accelerator_member[0]
         accelerator.remove(accelerator_member)
-        return 204
+        return '', 204

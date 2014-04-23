@@ -81,7 +81,7 @@ class Project(Resource):
         for k, v in args.iteritems():
             if v != None:
                 project_member[k] = v
-        return marshal(project_member, project_fields)
+        return '', 204
 
     def put(self):
         args = self.reqparse.parse_args()
@@ -100,4 +100,4 @@ class Project(Resource):
             abort(404)
         project_member = project_member[0]
         project.remove(project_member)
-        return 204
+        return '', 204

@@ -123,7 +123,7 @@ class Relationship(Resource):
         for k, v in args.iteritems():
             if v != None:
                 relationship_member[k] = v
-        return marshal(relationship_member, relationship_fields)
+        return '', 204
 
     def put(self):
         args = self.reqparse.parse_args()
@@ -142,4 +142,4 @@ class Relationship(Resource):
             abort(404)
         relationship_member = relationship_member[0]
         relationship.remove(relationship_member)
-        return 204
+        return '', 204

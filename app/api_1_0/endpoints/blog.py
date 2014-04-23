@@ -93,7 +93,7 @@ class Blog(Resource):
         for k, v in args.iteritems():
             if v != None:
                 blog_member[k] = v
-        return marshal(blog_member, blog_fields)
+        return '', 204
 
     def put(self):
         args = self.reqparse.parse_args()
@@ -112,4 +112,4 @@ class Blog(Resource):
             abort(404)
         blog_member = blog_member[0]
         blog.remove(blog_member)
-        return 204
+        return '', 204

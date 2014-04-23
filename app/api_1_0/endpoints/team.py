@@ -81,7 +81,7 @@ class Team(Resource):
         for k, v in args.iteritems():
             if v != None:
                 team_member[k] = v
-        return marshal(team_member, team_fields)
+        return '', 204
 
     def put(self):
         args = self.reqparse.parse_args()
@@ -100,4 +100,4 @@ class Team(Resource):
             abort(404)
         team_member = team_member[0]
         team.remove(team_member)
-        return 204
+        return '', 204
