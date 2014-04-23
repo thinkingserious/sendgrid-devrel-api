@@ -1,6 +1,7 @@
 I will eventually move these to issues, but for now ...
 
 * implement unit, functional and smoke tests using nose, store test data in test.py and use sqllite and maybe SQLAlchemy
+    * add configuration to run tests in mock mode for salesforce
 * implement Flask Blueprints
 * document error returns
 * curl example code does not work on Apiary, see app/tests/manual_tests.txt

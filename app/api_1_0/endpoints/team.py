@@ -1,45 +1,23 @@
 from flask import abort
 from flask.ext.restful import Resource, reqparse, fields, marshal
+from ...connectors.salesforce.salesforce import SF
 import datetime
 
 # Define the automatic, required and optional attributes
 auto_attr = [
-    ("id", "int"),
-    ("created_at", "str")
+    ("ID", "str")
 ]
 req_attr = [
-    ("type", "str"),
-    ("first_name", "str"),
-    ("last_name", "str"),
-    ("email", "str"),
-    ("phone", "str"),
-    ("home_city", "str")
+    ("Type", "str"),
+    ("FirstName", "str"),
+    ("LastName", "str"),
+    ("Email", "str"),
+    ("Phone", "str"),
+    ("HomeCity", "str"),
+    ("URL", "str")
 ]
 opt_attr = []
 all_attr = auto_attr + req_attr + opt_attr
-
-# Define sample data
-auto_sample_data = [
-    0,
-    "2014-01-01T00:00:00Z"
-]
-req_sample_data = [
-    "Hacker in Residence",
-    "Elmer",
-    "Thomas",
-    "elmer@sendgrid.com",
-    "951.801.4624",
-    "Riverside"
-]
-opt_sample_data = []
-all_sample_data = auto_sample_data + req_sample_data + opt_sample_data
-
-# Build sample data JSON object
-team_items = {}
-for index, (attr, type) in enumerate(all_attr):
-    team_items[attr] = all_sample_data[index]
-team = []
-team.append(team_items)
 
 # Build the fields for the Marshal function
 team_fields = {}
@@ -50,7 +28,6 @@ for index, (attr, type) in enumerate(all_attr):
         team_fields[attr] = fields.Integer
     elif type == "bool":
         team_fields[attr] = fields.Boolean
-team_fields["uri"] = fields.Url('team')
 
 class Team(Resource):
     def __init__(self):
@@ -65,9 +42,21 @@ class Team(Resource):
         super(Team, self).__init__()
 
     def get(self, id=None):
+        sf = SF()
+        r = sf.get()
+        team_items = {}
+        team = []
+        for i in range(len(r)):
+            for index, (attr, type) in enumerate(all_attr):
+                if attr == "URL":
+                    team_items[attr] = "/api/v1.0/team/" + r[i]["ID"]
+                else:
+                    team_items[attr] = r[i][attr]
+            team.append(team_items)
+            team_items = {}
         if id == None:
             return {'team': map(lambda t: marshal(t, team_fields), team)}
-        team_member = filter(lambda t: t['id'] == id, team)
+        team_member = filter(lambda t: t['ID'] == id, team)
         if len(team_member) == 0:
             abort(404)
         return marshal(team_member[0], team_fields)

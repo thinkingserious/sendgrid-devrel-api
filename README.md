@@ -6,6 +6,7 @@ This API allows you to interact with data related to SendGrid's Dev Rel (Develop
 * `virtualenv venv` # initialize a virtual environment
 * `. ./activate.sh` # to activate the virtual environment
 * `pip install -r requirements.txt` # install the dependencies
+* rename `.env_sample` to `.env` and update the credentials
 * make manage.py executable, then `./manage.py runserver` # execute the program
 
 To cleanup your local directory run `.cleanup.sh`

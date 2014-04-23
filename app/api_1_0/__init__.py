@@ -21,13 +21,12 @@ from .endpoints.opensource.objc import ObjC
 from .endpoints.opensource.perl import Perl
 from .endpoints.opensource.php import PHP
 from .endpoints.opensource.python import Python
-from ..connectors.salesforce.salesforce import SF
 
 api_blueprint = Blueprint('api', __name__)
 api = Api(prefix='/api/v1.0')
 
 # Register the endpoints
-api.add_resource(Team, '/team/<int:id>', '/team')
+api.add_resource(Team, '/team/<string:id>', '/team')
 api.add_resource(Relationship, '/relationship/<int:id>', '/relationship')
 api.add_resource(Event, '/event/<int:id>', '/event')
 api.add_resource(Feedback, '/feedback/<int:id>', '/feedback')
@@ -50,5 +49,3 @@ api.add_resource(ObjC, '/opensource/objc')
 api.add_resource(Perl, '/opensource/perl')
 api.add_resource(PHP, '/opensource/php')
 api.add_resource(Python, '/opensource/python')
-# TODO: Remove this endpoint when done with testing this connector
-api.add_resource(SF, '/salesforce')
