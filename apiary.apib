@@ -15,31 +15,31 @@ A single Team object, it represents a single person.
 
 Required attributes: 
 
-- `id`          Automatically assigned
-- `created_at`  Automatically assigned
-- `type`        Evangelist or Ambassador
-- `first_name`
-- `last_name`
-- `email`
-- `phone`
-- `home_city`
+- `ID`          Automatically assigned
+- `URL`         Automatically assigned
+- `Type`        Job Title
+- `FirstName`
+- `LastName`
+- `Email`
+- `Phone`
+- `HomeCity`
 
 + Parameters
-    + id (required, int) ... SalesForce ID of the team member in the form of an integer
+    + id (required, string) ... SalesForce ID of the team member
 
 + Model (application/json)
 
     + Body
 
             {
-                "id": 0,
-                "created_at": "2014-01-01T00:00:00Z",
-                "type": "Hacker in Residence",
-                "first_name": "Elmer",
-                "last_name": "Thomas",
-                "email": "elmer@sendgrid.com",
-                "phone": "951.801.4624",
-                "home_city": "Riverside"
+                "ID": elmer.thomas@sendgrid.com.devrel,
+                "Type": "Hacker in Residence",
+                "FirstName": "Elmer",
+                "LastName": "Thomas",
+                "Email": "elmer.thomas@sendgrid.com",
+                "Phone": "+1 9999999999",
+                "HomeCity": "Riverside"
+                "URL": "/api/v1.0/team/elmer.thomas@sendgrid.com.devrel"
             }
 
 ### Retrieve a single Team member [GET]
@@ -52,34 +52,10 @@ Required attributes:
 + Request (application/json)
 
         {
-            "email": "elmer.thomas@sendgrid.com",
+            "Email": "elmer@sendgrid.com",
         }
-
-+ Response 200
-    
-    [Team][]
-
-### Delete a Team member [DELETE]
 
 + Response 204
-
-### Create a Team member [PUT]
-TODO: Add error return values
-
-+ Request (application/json)
-
-        {
-            "type": "Ambassador",
-            "first_name": "Ultimate",
-            "last_name": "Warrior",
-            "email": "ultimate@warrior.com",
-            "phone": "999.999.9999",
-            "home city": "Parts Unknown"
-        }
-
-+ Response 201
-
-    [Team][]
 
 ## Team Collection [/team]
 Get all of the Team members.
@@ -95,25 +71,26 @@ Attributes:
             {
                 "team": [
                     {
-                        "id": 0,
-                        "created_at": "2014-01-01T00:00:00Z",
-                        "type": "Hacker in Residence",
-                        "first_name": "Elmer",
+                        "ID": elmer.thomas@sendgrid.com.devrel,
+                        "Type": "Hacker in Residence",
+                        "FirstName": "Elmer",
+                        "LastName": "Thomas",
+                        "Email": "elmer.thomas@sendgrid.com",
+                        "Phone": "+1 9999999999",
+                        "HomeCity": "Riverside"
+                        "URL": "/api/v1.0/team/elmer.thomas@sendgrid.com.devrel"
                     },
                     {
-                        "id": 1,
-                        "created_at": "2014-01-01T00:00:00Z",
-                        "type": "Director of Developer Relations",
-                        "first_name": "Tim",
-                    },
-                    {
-                        "id": 2,
-                        "created_at": "2014-01-01T00:00:00Z",
-                        "type": "Lead Developer Evangelist",
-                        "first_name": "Brandon",
+                        "ID": timfalls@sendgrid.com.devrel,
+                        "Type": "Director of Developer Relations",
+                        "FirstName": "Tim",
+                        "LastName": "Falls",
+                        "Email": "tim.falls@sendgrid.com",
+                        "Phone": "+1 9999999999",
+                        "HomeCity": "San Fransisco"
+                        "URL": "/api/v1.0/team/timfalls@sendgrid.com.devrel"
                     }
-                ],
-                "total": 3
+                ]
             }
 
 ### List All Team members [GET]

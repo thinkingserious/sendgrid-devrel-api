@@ -30,29 +30,13 @@ class APITestCase(unittest.TestCase):
         r = requests.get(url + '/elmer.thomas@sendgrid.com.devrel')
         self.assertTrue(r.status_code == 200)
 
-        # payload = {'email': 'elmer.thomas@sendgrid.com'}
-        # r = requests.patch(url + '/0', json.dumps(payload), headers=self.headers)
-        # self.assertTrue(r.status_code == 204)
+        payload = {'Email': 'elmer.thomas@sendgrid.com.devrel'}
+        r = requests.patch(url + '/elmer.thomas@sendgrid.com.devrel', json.dumps(payload), headers=self.headers)
+        self.assertTrue(r.status_code == 204)
 
-        # payload = {
-        #    "type": "Ambassador",
-        #    "first_name": "Ultimate",
-        #    "last_name": "Warrior",
-        #    "email": "ultimate@warrior.com",
-        #    "phone": "999.999.9999",
-        #    "home_city": "Parts Unknown"
-        #}
-        #r = requests.put(url, json.dumps(payload), headers=self.headers)
-        #self.assertTrue(r.status_code == 201)
-
-        #r = requests.get(url + '/1')
-        #self.assertTrue(r.status_code == 200)
-
-        #r = requests.delete(url + '/0')
-        #self.assertTrue(r.status_code == 204)
-
-        #r = requests.get(url + '/0')
-        #self.assertTrue(r.status_code == 404)
+        payload = {'Email': 'elmer.thomas@sendgrid.com'}
+        r = requests.patch(url + '/elmer.thomas@sendgrid.com.devrel', json.dumps(payload), headers=self.headers)
+        self.assertTrue(r.status_code == 204)
 
     def test_relationship(self):
         url = self.BASE_URL + '/relationship'
@@ -79,10 +63,10 @@ class APITestCase(unittest.TestCase):
         r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 200)
 
-        r = requests.delete(url + '/0')
+        r = requests.delete(url + '/1')
         self.assertTrue(r.status_code == 204)
 
-        r = requests.get(url + '/0')
+        r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 404)
 
     def test_event(self):
@@ -123,10 +107,10 @@ class APITestCase(unittest.TestCase):
         r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 200)
 
-        r = requests.delete(url + '/0')
+        r = requests.delete(url + '/1')
         self.assertTrue(r.status_code == 204)
 
-        r = requests.get(url + '/0')
+        r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 404)
 
     def test_feedback(self):
@@ -154,10 +138,10 @@ class APITestCase(unittest.TestCase):
         r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 200)
 
-        r = requests.delete(url + '/0')
+        r = requests.delete(url + '/1')
         self.assertTrue(r.status_code == 204)
 
-        r = requests.get(url + '/0')
+        r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 404)
 
     def test_project(self):
@@ -184,10 +168,10 @@ class APITestCase(unittest.TestCase):
         r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 200)
 
-        r = requests.delete(url + '/0')
+        r = requests.delete(url + '/1')
         self.assertTrue(r.status_code == 204)
 
-        r = requests.get(url + '/0')
+        r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 404)
 
     def test_blog(self):
@@ -214,10 +198,10 @@ class APITestCase(unittest.TestCase):
         r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 200)
 
-        r = requests.delete(url + '/0')
+        r = requests.delete(url + '/1')
         self.assertTrue(r.status_code == 204)
 
-        r = requests.get(url + '/0')
+        r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 404)
 
     def test_accelerator(self):
@@ -245,10 +229,10 @@ class APITestCase(unittest.TestCase):
         r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 200)
 
-        r = requests.delete(url + '/0')
+        r = requests.delete(url + '/1')
         self.assertTrue(r.status_code == 204)
 
-        r = requests.get(url + '/0')
+        r = requests.get(url + '/1')
         self.assertTrue(r.status_code == 404)
 
     def test_stackoverflow(self):

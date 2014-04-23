@@ -4,18 +4,15 @@ from flask.ext.restful import Resource
 
 class SF(Resource):
     def __init__(self):
-        return
-
-    # Right now this endpoint is being debugged
-    # Status: we can get all the data we need from Salesforce to pass to the API
-    # Next: convert this to a function and wire up to the team endpoint
-    def get(self):
-        sf = Salesforce(
+        self.sf = Salesforce(
             username=os.environ.get('SF_USER'),
             password=os.environ.get('SF_PASS'),
             security_token=os.environ.get('SF_TOKEN'),
             sandbox=True)
-        dict = sf.query("SELECT Username, Title, FirstName, LastName, MobilePhone, Email, City "
+        return
+
+    def get_team(self):
+        dict = self.sf.query("SELECT Username, Title, FirstName, LastName, MobilePhone, Email, City "
                         "FROM User WHERE "
                         "(Title = 'Developer Evangelist' "
                         "OR Title = 'Community Guy' "

@@ -23,6 +23,7 @@ I will eventually move these to issues, but for now ...
 * abstract the routes into routes.py
 * put the endpoints in the __init__.py for easy switching to different versions of the API
 * use environment variables (.env) instead of ConfigObj
+* define put and delete for team, for now remove from documentation
 
 * implement Salesforce connector [in progress]
 * implement GA connector
