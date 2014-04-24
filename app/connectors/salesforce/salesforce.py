@@ -37,3 +37,15 @@ class SF(Resource):
             team.append(team_items)
             team_items={}
         return team
+
+    def put_relationship(self):
+        return self.sf.Lead.create({
+            'FirstName':'Testy',
+            'LastName':'McTesterton',
+            'Company':'SendGrid',
+            'Monthly_Email_Volume__c':'2.5M to 10M',
+            'Type__c':'Reseller',
+            'Status':'Existing Customer',
+            'LeadSource':'Corporate Event',
+            'Developer_Relations_Rep__c':'elmer.thomas@sendgrid.com.devrel'
+        })

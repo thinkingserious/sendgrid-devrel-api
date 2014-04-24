@@ -66,6 +66,7 @@ class APITestCase(unittest.TestCase):
             "status": "dev rel nurture"
         }
         r = requests.put(url, json.dumps(payload), headers=self.headers)
+        print r.text
         self.assertTrue(r.status_code == 201)
 
         r = requests.get(url + '/1')
