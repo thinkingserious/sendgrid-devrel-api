@@ -38,6 +38,14 @@ class APITestCase(unittest.TestCase):
         r = requests.patch(url + '/elmer.thomas@sendgrid.com.devrel', json.dumps(payload), headers=self.headers)
         self.assertTrue(r.status_code == 204)
 
+        payload = {'Bogus': 'data'}
+        r = requests.patch(url + '/elmer.thomas@sendgrid.com.devrel', json.dumps(payload), headers=self.headers)
+        self.assertTrue(r.status_code == 400)
+
+        payload = {'Email': 'elmer.thomas@sendgrid.com'}
+        r = requests.patch(url + '/bad/url', json.dumps(payload), headers=self.headers)
+        self.assertTrue(r.status_code == 404)
+
     def test_relationship(self):
         url = self.BASE_URL + '/relationship'
 

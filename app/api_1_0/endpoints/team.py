@@ -1,74 +1,49 @@
-from flask.ext.restful import Resource, reqparse, fields, marshal, abort
+from flask.ext.restful import Resource, marshal, abort
+from endpoint_utils import EndpointUtils
 from ...connectors.salesforce.salesforce import SF
-import datetime
 
-# Define the automatic, required and optional attributes
-auto_attr = [
-    ("ID", "str")
-]
-req_attr = [
-    ("Type", "str"),
-    ("FirstName", "str"),
-    ("LastName", "str"),
-    ("Email", "str"),
-    ("Phone", "str"),
-    ("HomeCity", "str"),
-    ("URL", "str")
-]
-opt_attr = []
-all_attr = auto_attr + req_attr + opt_attr
-
-# Build the fields for the Marshal function
-team_fields = {}
-for index, (attr, type) in enumerate(all_attr):
-    if type == "str":
-        team_fields[attr] = fields.String
-    elif type == "int":
-        team_fields[attr] = fields.Integer
-    elif type == "bool":
-        team_fields[attr] = fields.Boolean
-
-sf = SF()
-r = sf.get_team()
-team_items = {}
-team = []
-for i in range(len(r)):
-    for index, (attr, type) in enumerate(all_attr):
-        if attr == "URL":
-            team_items[attr] = "/api/v1.0/team/" + r[i]["ID"]
-        else:
-            team_items[attr] = r[i][attr]
-    team.append(team_items)
-    team_items = {}
-
-class Team(Resource):
+# Documentation for this endpoint: http://docs.sendgrid.apiary.io
+class Team(Resource, EndpointUtils):
     def __init__(self):
-        self.reqparse = reqparse.RequestParser()
-        for index, (attr, type) in enumerate(req_attr + opt_attr):
-            if type == "str":
-                self.reqparse.add_argument(attr, type=str, location='json')
-            elif type == "int":
-                self.reqparse.add_argument(attr, type=int, location='json')
-            elif type == "bool":
-                self.reqparse.add_argument(attr, type=bool, location='json')
+        # Define the automatically generated, required and optional attributes
+        self.auto_attr = [
+            ("ID", "str")
+        ]
+        self.req_attr = [
+            ("URL", "str"),
+            ("Type", "str"),
+            ("FirstName", "str"),
+            ("LastName", "str"),
+            ("Email", "str"),
+            ("Phone", "str"),
+            ("HomeCity", "str")
+        ]
+        self.opt_attr = []
+        self.all_attr = self.auto_attr + self.req_attr + self.opt_attr
+        self.team_fields = EndpointUtils.create_dict_of_keys(self, self.all_attr)
+        self.reqparse = EndpointUtils.create_request_parser(self, self.req_attr, self.opt_attr)
+        self.salesforce = SF()
+        team_members = self.salesforce.get_team()
+        self.team = EndpointUtils.build_data_container(self, team_members, self.all_attr, "/api/v1.0/team/", "ID")
         super(Team, self).__init__()
 
     def get(self, id=None):
         if id == None:
-            return {'team': map(lambda t: marshal(t, team_fields), team)}
+            return {'team': map(lambda t: marshal(t, self.team_fields), self.team)}
         # Return a single team member
-        team_member = filter(lambda t: t['ID'] == id, team)
+        team_member = filter(lambda t: t['ID'] == id, self.team)
         if len(team_member) == 0:
-            abort(404, error="404", message="endpoint {} doesn't exist".format(id))
-        return marshal(team_member[0], team_fields)
+            abort(404, error="404", message="Endpoint {} doesn't exist".format(id))
+        return marshal(team_member[0], self.team_fields)
 
     def patch(self, id):
-        team_member = filter(lambda t: t['ID'] == id, team)
+        team_member = filter(lambda t: t['ID'] == id, self.team)
         if len(team_member) == 0:
-            abort(404, error="404", message="endpoint {} doesn't exist".format(id))
+            abort(404, error="404", message="Endpoint {} doesn't exist".format(id))
         team_member = team_member[0]
         args = self.reqparse.parse_args()
-        for k, v in args.iteritems():
-            if v != None:
-                team_member[k] = v
-        return '', 204
+        found_key = EndpointUtils.execute_patch(self, args, team_member)
+        if found_key:
+            return '', 204
+        else:
+            abort(400, error="400", message="Key {} not found".format(id))
